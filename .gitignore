@@ -1,3 +1,4 @@
+.vscode/
 Objects/
 Listings/
 DebugConfig/
@@ -6,3 +7,4 @@ DebugConfig/
 *.zxl
 *.uvoptx
 *.uvprojx
+*.scvd

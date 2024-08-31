@@ -2,7 +2,7 @@
  * @Author: zengxianl 2833995945@qq.com
  * @Date: 2024-08-31 14:15:27
  * @LastEditors: zengxianl 2833995945@qq.com
- * @LastEditTime: 2024-08-31 15:31:26
+ * @LastEditTime: 2024-08-31 16:28:13
  * @FilePath: \Project\driver\pwm.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,16 +21,15 @@ void pwm_init(uint16_t psc,uint16_t per)
     GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
     GPIO_Init(GPIOA,&GPIO_InitStructure);
 
-    TIM_TimeBaseStructInit(&TIM_OCInitStructure);
-    TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV4;
+    TIM_TimeBaseStructInit(&TIM_TimeBaseStructure);
+    TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1;
     TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up;
     TIM_TimeBaseStructure.TIM_Period=per;
     TIM_TimeBaseStructure.TIM_Prescaler=psc;
     TIM_TimeBaseInit(TIM1,&TIM_TimeBaseStructure);
 
-    TIM_OCStructInit(&TIM_OCInitStructure);
     TIM_OCInitStructure.TIM_OCMode=TIM_OCMode_PWM1;
-    TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Disable;
+    TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Enable;
     TIM_OCInitStructure.TIM_Pulse=0;
     TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_High;
     TIM_OC1Init(TIM1,&TIM_OCInitStructure);

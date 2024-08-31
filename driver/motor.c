@@ -2,7 +2,7 @@
  * @Author: zengxianl 2833995945@qq.com
  * @Date: 2024-08-31 15:10:27
  * @LastEditors: zengxianl 2833995945@qq.com
- * @LastEditTime: 2024-08-31 15:47:59
+ * @LastEditTime: 2024-08-31 16:30:26
  * @FilePath: \Project\driver\motor.c
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -46,5 +46,5 @@ void set_pwm4(int pwm)
     pwm_limit(&pwm);
     if (pwm > 0)Bin1=1,Bin2=0;
     else Bin1=0,Bin2=1;
-    TIM1->CCR1 = abs(pwm);
+    TIM1->CCR4 = abs(pwm);
 }
